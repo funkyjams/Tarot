@@ -3,8 +3,8 @@ French Tarot
 ------------
 
 
-This is a java implementation of the French Tarot game.
-For rules, check wikipedia.
+This is a java implementation of the [French Tarot](https://en.wikipedia.org/wiki/French_tarot) game.
+
 
 Yet to be implemented:
 - Special rules (Petit at the end, Excuse at the end, poignee, etc...)
