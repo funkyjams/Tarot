@@ -1,4 +1,7 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.impl;
+
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotDeck;
 
 public class TarotCardImpl implements TarotCard {
 

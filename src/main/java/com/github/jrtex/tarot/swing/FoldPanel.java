@@ -1,9 +1,13 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
 
 import javax.swing.JPanel;
+
+import com.github.jrtex.tarot.model.Fold;
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.TarotGame;
 
 @SuppressWarnings("serial")
 public class FoldPanel extends JPanel {

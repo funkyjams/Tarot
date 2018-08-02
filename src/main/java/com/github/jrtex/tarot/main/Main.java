@@ -1,6 +1,8 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.main;
 
 import javax.swing.JFrame;
+
+import com.github.jrtex.tarot.model.Player;
 
 public class Main {
 

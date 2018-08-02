@@ -1,4 +1,4 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.model;
 
 public class PlayedCard {
 
@@ -10,11 +10,6 @@ public class PlayedCard {
 		this.player = p;
 		this.card = c;
 	}
-	public PlayedCard(CardLabel l){
-		this.player = l.getPlayer();
-		this.card = l.getCard();
-	}
-
 
 	// Getters
 	public Player getPlayer(){

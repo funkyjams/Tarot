@@ -1,6 +1,8 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.model;
 
 import java.util.List;
+
+import com.github.jrtex.tarot.ExcuseException;
 
 public interface TarotGame extends java.util.Observer{
 

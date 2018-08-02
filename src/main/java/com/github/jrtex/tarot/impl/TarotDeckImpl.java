@@ -1,8 +1,13 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.impl;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotDeck;
+import com.github.jrtex.tarot.model.TarotGame;
 
 
 public class TarotDeckImpl implements TarotDeck{
@@ -34,6 +39,7 @@ public class TarotDeckImpl implements TarotDeck{
 	public TarotGame getGame(){
 		return game;
 	}
+	@Override
 	public List<TarotCard> getCards(){
 		return cards;
 	}
@@ -69,11 +75,13 @@ public class TarotDeckImpl implements TarotDeck{
 
 
 	// Mandatory Implementations
+	@Override
 	public void shuffle(){
 		Collections.shuffle(cards);
 	}
 
 
+	@Override
 	public void distribute(){
 
 /*		for (int i = 0; i<78; i++){
@@ -94,6 +102,7 @@ public class TarotDeckImpl implements TarotDeck{
 
 	}
 
+	@Override
 	public void distribute(Player dealer){
 
 		if (game.getWhoseTurn() != null && dealer != game.getWhoseTurn())
@@ -122,6 +131,7 @@ public class TarotDeckImpl implements TarotDeck{
 	}
 
 
+	@Override
 	public void cut(int i){
 
 		if ( getSize() != 78 )

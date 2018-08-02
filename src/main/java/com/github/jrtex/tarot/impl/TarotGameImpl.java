@@ -1,9 +1,18 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Observable;
+
+import com.github.jrtex.tarot.ExcuseException;
+import com.github.jrtex.tarot.model.Contract;
+import com.github.jrtex.tarot.model.Fold;
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotDeck;
+import com.github.jrtex.tarot.model.TarotGame;
 
 public class TarotGameImpl extends java.util.Observable implements TarotGame, java.util.Observer{
 

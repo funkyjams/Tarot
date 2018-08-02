@@ -1,10 +1,13 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
 
 @SuppressWarnings("serial")
 public class PlayerPanel extends JPanel{

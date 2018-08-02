@@ -1,5 +1,19 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.main;
 
+import com.github.jrtex.tarot.ExcuseException;
+import com.github.jrtex.tarot.TarotException;
+import com.github.jrtex.tarot.impl.TarotGameImpl;
+import com.github.jrtex.tarot.model.Contract;
+import com.github.jrtex.tarot.model.Fold;
+import com.github.jrtex.tarot.model.IllegalContractException;
+import com.github.jrtex.tarot.model.IllegalMoveException;
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotGame;
+import com.github.jrtex.tarot.model.WrongPlayerException;
+import com.github.jrtex.tarot.swing.TarotListener;
+import com.github.jrtex.tarot.swing.TarotView;
 
 public class Controller extends java.util.Observable implements TarotListener{
 

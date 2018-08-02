@@ -1,9 +1,11 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.model;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+
+import com.github.jrtex.tarot.ExcuseException;
 
 public class Player {
 

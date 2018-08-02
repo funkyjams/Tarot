@@ -1,11 +1,4 @@
-package com.github.jrtex.tarot;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Observable;
-
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.BorderLayout;
 //  java.awt.Color;
@@ -17,6 +10,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Observable;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import com.github.jrtex.tarot.TarotException;
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotGame;
 
 @SuppressWarnings("serial")
 public class TarotView extends JPanel implements ActionListener, java.util.Observer, MouseListener{
@@ -176,9 +180,10 @@ public class TarotView extends JPanel implements ActionListener, java.util.Obser
 
 		if (e.getSource() instanceof ContractPanel)
 			o = ( (ContractPanel) e.getSource()).getContract();
-		else if (e.getSource() instanceof CardLabel)
-			o = new PlayedCard( (CardLabel) e.getSource() );
-		else if (e.getSource() instanceof JLabel){
+		else if (e.getSource() instanceof CardLabel) {
+			final CardLabel cardLabel = (CardLabel) e.getSource();
+			o = new PlayedCard(cardLabel.getPlayer(), cardLabel.getCard());
+		} else if (e.getSource() instanceof JLabel){
 			o = this;
 		}
 		else o = null;

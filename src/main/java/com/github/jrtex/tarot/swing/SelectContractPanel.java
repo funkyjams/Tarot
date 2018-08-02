@@ -1,9 +1,12 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.github.jrtex.tarot.model.Contract;
+import com.github.jrtex.tarot.model.Player;
 
 @SuppressWarnings("serial")
 public class SelectContractPanel extends JPanel{

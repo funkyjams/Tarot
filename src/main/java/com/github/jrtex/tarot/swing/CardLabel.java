@@ -1,8 +1,12 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.Color;
 
 import javax.swing.JLabel;
+
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
 
 @SuppressWarnings("serial")
 public class CardLabel extends JLabel{

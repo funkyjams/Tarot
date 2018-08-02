@@ -1,4 +1,4 @@
-package com.github.jrtex.tarot;
+package com.github.jrtex.tarot.model;
 
 public class Contract {
 
