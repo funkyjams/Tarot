@@ -98,7 +98,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <mainClass>com.github.jrtex.tarot.Main</mainClass>
+        <mainClass>com.github.jrtex.tarot.main.Main</mainClass>
     </properties>
     <artifactId>tarot</artifactId>
     <description>A java implementation of the French Tarot game</description>
