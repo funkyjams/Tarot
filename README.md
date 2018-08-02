@@ -3,7 +3,7 @@ French Tarot
 ------------
 
 
-This is a java implementation of the [French Tarot(https://en.wikipedia.org/wiki/French_tarot) game].
+This is a java implementation of the [French Tarot game](https://en.wikipedia.org/wiki/French_tarot).
 
 
 Yet to be implemented:
