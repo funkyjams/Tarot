@@ -1,4 +1,4 @@
-package v05;
+package com.github.jrtex.tarot;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
@@ -35,7 +35,7 @@ public class PlayerPanel extends JPanel{
 	// Panel building
 	private JPanel cardsPanel(){
 		JPanel panel = new JPanel(new GridLayout(3, 6));
-		
+
 		for (TarotCard card: player.getCards()){
 			CardLabel label = new CardLabel(card, player);
 			label.addMouseListener(view);

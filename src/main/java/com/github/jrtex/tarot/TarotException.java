@@ -1,4 +1,4 @@
-package v05;
+package com.github.jrtex.tarot;
 
 
 public abstract class TarotException extends Exception {
@@ -38,7 +38,7 @@ class IllegalContractException extends TarotException {
 
 
 class ExcuseException extends TarotException {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public ExcuseException(){

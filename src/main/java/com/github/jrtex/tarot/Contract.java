@@ -1,4 +1,4 @@
-package v05;
+package com.github.jrtex.tarot;
 
 public class Contract {
 
@@ -12,7 +12,7 @@ public class Contract {
 	public static final int Without = 4;
 	public static final int Against = 6;
 
-	
+
 	public Contract(Player p, int m, TarotGame game){
 		this.multiplier = m;
 		this.player = p;
@@ -52,7 +52,7 @@ public class Contract {
 	public int pointsNeeded(){
 
 		int bout = 0;
-		for (TarotCard card : player.getCards() ){ 
+		for (TarotCard card : player.getCards() ){
 			if ( card.getSuit() == TarotCard.Suit.ATOUT &&
 					(card.getRank() == 0 || card.getRank() == 1 || card.getRank() == 21) )
 				bout++;
@@ -78,7 +78,7 @@ public class Contract {
 		else
 			return 56;
 	}
-	
-	
-	
+
+
+
 }

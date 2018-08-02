@@ -1,8 +1,7 @@
-package v05;
+package com.github.jrtex.tarot;
 
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
 
@@ -10,18 +9,18 @@ import javax.swing.JPanel;
 public class FoldPanel extends JPanel {
 
 	private Fold fold;
-	
+
 	public FoldPanel(TarotGame game){
 		this.fold = game.getCurrentFold();
-		
-		
+
+
 		// setLayout(new GridBagLayout());
 		setLayout(new FlowLayout());
 		GridBagConstraints e = new GridBagConstraints();
 		GridBagConstraints s = new GridBagConstraints();
 		GridBagConstraints w = new GridBagConstraints();
 		GridBagConstraints n = new GridBagConstraints();
-		
+
 		e.anchor = GridBagConstraints.LINE_START;
 		e.weighty = 0.0;
 		e.weightx = 1.0;
@@ -34,15 +33,15 @@ public class FoldPanel extends JPanel {
 		n.anchor = GridBagConstraints.PAGE_START;
 		n.weighty = 1.0;
 		n.weightx = 0.0;
-		
+
 		for (PlayedCard card: fold.getFold()){
 			CardLabel label = new CardLabel(card);
 			add(label);
 		}
-		
+
 		/*for (PlayedCard card: fold.getFold()){
 			CardLabel label = new CardLabel(card);
-			
+
 			if (card.getPlayer() == game.getP4())
 				add(label, n);
 			else if (card.getPlayer() == game.getP1())
@@ -54,5 +53,5 @@ public class FoldPanel extends JPanel {
 		}*/
 
 	}
-	
+
 }

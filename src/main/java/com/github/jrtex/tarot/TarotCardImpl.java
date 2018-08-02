@@ -1,4 +1,4 @@
-package v05;
+package com.github.jrtex.tarot;
 
 public class TarotCardImpl implements TarotCard {
 
@@ -27,19 +27,22 @@ public class TarotCardImpl implements TarotCard {
 
 			if (rank == 0 || rank == 1 || rank == 21){
 				this.value = 4.5;
-			} else 
+			} else
 				this.value = 0.5;
 		}
 	}
 
 
 	// Getters
+	@Override
 	public TarotCard.Suit getSuit(){
 		return suit;
 	}
+	@Override
 	public int getRank(){
 		return rank;
 	}
+	@Override
 	public double getValue(){
 		return value;
 	}
@@ -50,8 +53,8 @@ public class TarotCardImpl implements TarotCard {
 	public int compareTo(TarotCard c) {
 		return (this.rank - c.getRank());
 	}
-	
-	
+
+
 	// @Override
 	public boolean equals(TarotCard c){
 		return (rank == c.getRank() && suit == c.getSuit());
@@ -70,6 +73,7 @@ public class TarotCardImpl implements TarotCard {
 		else
 			return ("A");
 	}
+	@Override
 	public String toString(){
 
 		if (suit != TarotCard.Suit.ATOUT){
