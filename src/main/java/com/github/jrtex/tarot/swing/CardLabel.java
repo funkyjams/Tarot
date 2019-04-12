@@ -1,33 +1,37 @@
-package v05;
+package com.github.jrtex.tarot.swing;
 
 import java.awt.Color;
 
 import javax.swing.JLabel;
 
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
+
 @SuppressWarnings("serial")
 public class CardLabel extends JLabel{
-	
+
 	private TarotCard card;
 	private Player player;
-	
+
 	public CardLabel(TarotCard card, Player player){
 		super(card.toString());
 		this.card = card;
 		this.player = player;
-		
+
 		paint();
 	}
-	
-	
+
+
 	public CardLabel(PlayedCard c){
 		super(c.getCard().toString());
 		this.card = c.getCard();
 		this.player = c.getPlayer();
-		
+
 		paint();
 	}
 
-	
+
 	private void paint(){
 		if (card.getSuit() == TarotCard.Suit.CARREAU || card.getSuit() == TarotCard.Suit.COEUR)
 			this.setForeground(Color.RED);
@@ -36,8 +40,8 @@ public class CardLabel extends JLabel{
 		else
 			this.setForeground(Color.GREEN);
 	}
-	
-	
+
+
 	// Getters
 	public TarotCard getCard(){
 		return card;

@@ -1,9 +1,18 @@
-package v05;
+package com.github.jrtex.tarot.impl;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Observable;
+
+import com.github.jrtex.tarot.ExcuseException;
+import com.github.jrtex.tarot.model.Contract;
+import com.github.jrtex.tarot.model.Fold;
+import com.github.jrtex.tarot.model.PlayedCard;
+import com.github.jrtex.tarot.model.Player;
+import com.github.jrtex.tarot.model.TarotCard;
+import com.github.jrtex.tarot.model.TarotDeck;
+import com.github.jrtex.tarot.model.TarotGame;
 
 public class TarotGameImpl extends java.util.Observable implements TarotGame, java.util.Observer{
 
@@ -50,31 +59,42 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 
 
 	// Getters & Setters
-	public List<Player> getPlayers(){ 
+	public List<Player> getPlayers(){
 		return Arrays.asList( new Player[] {east, south, west, north} );
 	}
+	@Override
 	public Player getP1(){ return east; }
+	@Override
 	public Player getP2(){ return south; }
+	@Override
 	public Player getP3(){ return west; }
+	@Override
 	public Player getP4(){ return north; }
+	@Override
 	public List<TarotCard> getChien(){
 		return chien;
 	}
+	@Override
 	public Player getDealer(){
 		return dealer;
 	}
+	@Override
 	public Player getWhoseTurn(){
 		return whoseTurn;
 	}
+	@Override
 	public TarotGame.Status getStatus(){
 		return status;
 	}
+	@Override
 	public Contract getContract(){
 		return contract;
 	}
+	@Override
 	public void setContract(Contract contract){
 		this.contract = contract;
 	}
+	@Override
 	public Fold getCurrentFold(){
 		return currentFold;
 	}
@@ -82,6 +102,7 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 
 
 	// TarotGame methods
+	@Override
 	public void playCard(PlayedCard card) throws ExcuseException{
 		if (currentFold == null)
 			currentFold = new Fold();
@@ -102,18 +123,18 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 
 				if (c.getRank() == 0){
 					// Provide Behavious for excuse
-					
+
 					if (c.getPlayer().getCards().size() == 0) {
 						// Excuse Played last:
-						
-						
+
+
 						// Played by losing side, send to winner anyway
 						if ( (c.getPlayer() == contract.getPlayer() && whoseTurn != contract.getPlayer())
 								|| c.getPlayer() != contract.getPlayer() && whoseTurn == contract.getPlayer()){
 							whoseTurn.addToStash( c.getCard() );
 						}
 
-						// Played by winnin side, send to contractor 
+						// Played by winnin side, send to contractor
 						else if (c.getPlayer() != contract.getPlayer() && whoseTurn != contract.getPlayer() ){
 							contract.getPlayer().addToStash( c.getCard() );
 							whoseTurn.addToStash( contract.getPlayer().takeLowValueCard() );
@@ -121,14 +142,14 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 						else {
 							throw new RuntimeException("I didn't think this scenario was possible, sorry");
 						}
-						
+
 						/*else if (c.getPlayer() != contract.getPlayer()) {
 							contract.getPlayer().addToStash( c.getCard() );
 							c.getPlayer().addToStash(contract.getPlayer().takeLowValueCard());
 						} else {
 
 							Player next = switchTurn(contract.getPlayer());
-							
+
 							while (true){
 								next.addToStash( c.getCard() );
 								try {
@@ -136,7 +157,7 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 									break;
 								} catch (ExcuseException e){ next = switchTurn(next); }
 							}
-							
+
 						}*/
 
 					} else {
@@ -160,10 +181,11 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 		}
 	}
 
-	
+
 	// Other Methods
 
 
+	@Override
 	public void switchTurn(){
 		whoseTurn = switchTurn(whoseTurn);
 	}
@@ -183,6 +205,7 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 	}
 
 
+	@Override
 	public void nextPhase(){
 		if (status == TarotGame.Status.CONTRACT)
 			status = TarotGame.Status.CHIEN;
@@ -215,8 +238,9 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 	}
 
 
+	@Override
 	public void redistribute() {
-		
+
 		// Remove All cards from stacks
 		if (status == TarotGame.Status.CONTRACT)
 			deck.addCards(east.takeAllCards(), south.takeAllCards(), west.takeAllCards(), north.takeAllCards(), chien );
@@ -235,15 +259,15 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 		// Reset Contract
 		contract = null;
 		status = TarotGame.Status.CONTRACT;
-		
+
 		// Distribute
 		deck.cut( 1 + (int)(Math.random() * ((78 - 1) + 1)) );
-		
+
 		dealer = switchTurn(dealer);
 		whoseTurn = dealer;
 		deck.distribute(dealer);
 
-		
+
 		east.orderHand();
 		south.orderHand();
 		west.orderHand();
@@ -253,8 +277,9 @@ public class TarotGameImpl extends java.util.Observable implements TarotGame, ja
 
 		update(this, this);
 	}
-	
 
+
+	@Override
 	public void update(Observable o, Object obj){
 		setChanged();
 		notifyObservers(obj);

@@ -1,9 +1,9 @@
-package v05;
+package com.github.jrtex.tarot.model;
 
 public interface TarotCard extends Comparable<TarotCard> {
-	
+
 	public enum Suit {PIQUE, COEUR, CARREAU, TREFLE, ATOUT};
-	
+
 	public static final int EXCUSE = 0;
 	public static final int VALET = 11;
 	public static final int CAVALIER = 12;
@@ -11,6 +11,7 @@ public interface TarotCard extends Comparable<TarotCard> {
 	public static final int ROI = 14;
 
 	public Suit getSuit();
+	@Override
 	public String toString();
 	// public String toLabel();
 	public double getValue();

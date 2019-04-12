@@ -1,7 +1,7 @@
-package v05;
+package com.github.jrtex.tarot.model;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Fold {
 
@@ -46,19 +46,19 @@ public class Fold {
 		fold.add(playedCard);
 		cards.add(playedCard.getCard());
 	}
-	
-	
+
+
 	private boolean has(TarotCard.Suit suit){
 		boolean has = false;
-		
+
 		for (PlayedCard card: fold)
 			if (card.getSuit() == suit && card.getRank() != 0)
 				has = true;
-		
+
 		return has;
 	}
 
-	
+
 	public Player getWinner(){
 		if (!isFull())
 			throw new RuntimeException("Can only check winner when fold is full");
@@ -75,7 +75,7 @@ public class Fold {
 						card.getSuit() == TarotCard.Suit.ATOUT && winningCard.getSuit() != TarotCard.Suit.ATOUT )
 					winningCard = card;
 		}
-		
+
 		return winningCard.getPlayer();
 	}
 
